@@ -1,2 +1,2 @@
-//include ':app', ':my_library'
-include ':app'
+include ':app', ':my_library'
+//include ':app'
