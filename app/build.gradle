@@ -26,5 +26,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 //    implementation project(':my_library')
-    implementation 'com.github.amazinglu:library_publish_test:v1.0'
+//    implementation 'com.github.amazinglu:library_publish_test:v1.0'
+
+//    implementation 'ua.org.tenletters.widget:my-library:1.0.0'
 }
