@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 27
@@ -31,4 +33,34 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'my-library'
+
+    publishedGroupId = 'my-library'
+    libraryName = 'my_library'
+    artifact = 'my-library'
+
+    libraryDescription = 'A wrapper for Facebook Native Like Button (LikeView) on Android'
+
+    siteUrl = 'https://github.com/amazinglu/library_publish_test'
+    gitUrl = 'https://github.com/amazinglu/library_publish_test.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'amazinglu'
+    developerName = 'Ben Lu'
+    developerEmail = 'amazinglu166@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+// Place it at the end of the file
+if (project.rootProject.file('local.properties').exists()) {
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 }
