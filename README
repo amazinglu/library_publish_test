@@ -1,0 +1,19 @@
+note for publish library to bintray
+
+    use the latest version of "com.github.dcendents.android-maven"
+    and "com.jfrog.bintray"
+
+    use Plugins {} instead of apply plugin
+
+    get the gpg public key as well as the private key
+
+        list key
+            gpg --list-secret-keys --keyid-format LONG
+
+        public key command
+            gpg --armor --export 092A156DB2009E05 (key Id)
+
+        private key export command
+            gpg --export-secret-keys -a
+
+use the same setting as the Project level build.gradle and library level build.gradle

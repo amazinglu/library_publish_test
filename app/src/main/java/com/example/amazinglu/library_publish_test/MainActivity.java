@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.amazinglu.my_library.Message;
+import com.example.amazinglu.my_library.SuccedUpload;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,5 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
 //        Message message = new Message();
 //        String tmp = message.getMessage();
+
+        String tmp = new SuccedUpload().toString();
+        Toast.makeText(this, tmp, Toast.LENGTH_LONG).show();
+        System.out.println(new SuccedUpload());
     }
 }
