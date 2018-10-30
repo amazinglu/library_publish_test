@@ -1,11 +1,15 @@
-apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.android.library'
+//apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.github.dcendents.android-maven'
+
+plugins {
+    id 'com.android.library'
+    id "com.github.dcendents.android-maven" version "2.1"
+    id "com.jfrog.bintray" version "1.8.4"
+}
 
 android {
     compileSdkVersion 27
-
-
 
     defaultConfig {
         minSdkVersion 15
@@ -37,22 +41,22 @@ dependencies {
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'mymessage'
+    bintrayName = 'my-library'
 
-    publishedGroupId = 'ua.org.tenletters.widget'
+    publishedGroupId = 'com.example.mazinglu.library'
     libraryName = 'my_library'
-    artifact = 'mymessage'
+    artifact = 'my-library'
 
     libraryDescription = 'This view is a container that supports diagonal scroll and fling gesture. It is based on AOSP HorizontalScrollView.'
 
     siteUrl = 'https://github.com/amazinglu/library_publish_test'
     gitUrl = 'https://github.com/amazinglu/library_publish_test.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.6'
 
-    developerId = 'lissf'
-    developerName = 'Yegor Zatsepin'
-    developerEmail = 'Liss_F@ukr.net'
+    developerId = 'amazinglu'
+    developerName = 'Ben Lu'
+    developerEmail = 'amazinglu166@gmail.com'
 
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
@@ -134,12 +138,14 @@ bintray {
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = allLicenses
-        dryRun = false
         publish = true
-        override = false
         publicDownloadNumbers = true
         version {
             desc = libraryDescription
+            gpg {
+                sign = true
+                passphrase = properties.getProperty("bintray.gpg.password")
+            }
         }
     }
 }
